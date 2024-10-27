@@ -1,3 +1,4 @@
+# In views.py
 from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
@@ -13,18 +14,7 @@ from django.contrib.staticfiles import finders
 class ApiAnimationView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def options(self, request, *args, **kwargs):
-        response = JsonResponse({'status': 'ok'})
-        response["Access-Control-Allow-Origin"] = "*"
-        response["Access-Control-Allow-Methods"] = "POST, OPTIONS"
-        response["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
-        return response
-
     def post(self, request):
-        # Ensure to check if the user is authenticated
-        if not request.user.is_authenticated:
-            return JsonResponse({'error': 'Unauthorized'}, status=401)
-
         data = request.data
         text = data.get('sen', '').lower()
 
