@@ -5,26 +5,26 @@ This API converts text into Indian Sign Language (ISL) animations by leveraging 
 ## Project Overview
 
 The Text to ISL Converter API uses machine learning and NLP to:
-> 1. **Preprocess and Analyze Text Input** — Breaking down text into key tokens and grammatical structures.
-> 2. **Map Processed Text to ISL Animations** — Using predefined animations based on the semantic and syntactic features of the text.
-> 3. **Generate Responses** — Returning animation data for ISL sign sequences.
+ 1. **Preprocess and Analyze Text Input** — Breaking down text into key tokens and grammatical structures.
+ 2. **Map Processed Text to ISL Animations** — Using predefined animations based on the semantic and syntactic features of the text.
+ 3. **Generate Responses** — Returning animation data for ISL sign sequences.
 
 ## Model & NLP Pipeline
 
 The API leverages NLTK for preprocessing, which includes:
 
-> Tokenization — Breaking text into words
-> POS Tagging — Part-of-speech tagging to capture grammatical context
-> Stop Words Removal and Lemmatization — Filtering out unimportant words and reducing words to base forms
-> Based on token analysis and grammatical structure, the API maps text to ISL animations, using predefined videos to represent each token. When a token’s animation is unavailable, it defaults to a character-by-character sign animation.
+- Tokenization — Breaking text into words
+- POS Tagging — Part-of-speech tagging to capture grammatical context
+- Stop Words Removal and Lemmatization — Filtering out unimportant words and reducing words to base forms
+- Based on token analysis and grammatical structure, the API maps text to ISL animations, using predefined videos to represent each token. When a token’s animation is unavailable, it defaults to a character-by-character sign animation.
 
 ## Prerequisites
 
 To get my API up and running, you'll need:
 
-> - Python 3.7 or higher
-> - Browser supports Web Speech API
-> - All required packages listed in `requirements.txt`
+ - Python 3.7 or higher
+ - Browser supports Web Speech API
+ - All required packages listed in `requirements.txt`
 
 ## Getting Started
 
