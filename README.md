@@ -1,21 +1,29 @@
 # Text to Indian Sign Language (ISL) Converter API
 
-Hello there! I've created a backend API that converts text input into Indian Sign Language (ISL) animations. This API is designed to be the engine behind a web application that displays ISL animations based on text input.
+This API converts text into Indian Sign Language (ISL) animations by leveraging natural language processing (NLP) techniques. Designed as a translation engine, it interprets and maps text input to 3D ISL animations, creating an accessible and engaging experience for sign language users.
 
-## What My API Does
+## Project Overview
 
-My API takes in text as input, processes it using Natural Language Toolkit (NLTK), and returns the relevant Indian Sign Language animations. Here's a quick overview of what's happening under the hood:
+The Text to ISL Converter API uses machine learning and NLP to:
+> 1. **Preprocess and Analyze Text Input** — Breaking down text into key tokens and grammatical structures.
+> 2. **Map Processed Text to ISL Animations** — Using predefined animations based on the semantic and syntactic features of the text.
+> 3. **Generate Responses** — Returning animation data for ISL sign sequences.
 
-> 1. Text preprocessing using NLTK
-> 2. Mapping of processed text to pre-created 3D animations
-> 3. Returning animation data for frontend rendering
+## Model & NLP Pipeline
+
+The API leverages NLTK for preprocessing, which includes:
+
+> Tokenization — Breaking text into words
+> POS Tagging — Part-of-speech tagging to capture grammatical context
+> Stop Words Removal and Lemmatization — Filtering out unimportant words and reducing words to base forms
+> Based on token analysis and grammatical structure, the API maps text to ISL animations, using predefined videos to represent each token. When a token’s animation is unavailable, it defaults to a character-by-character sign animation.
 
 ## Prerequisites
 
 To get my API up and running, you'll need:
 
 > - Python 3.7 or higher
-> -Browser supports Web Speech API
+> - Browser supports Web Speech API
 > - All required packages listed in `requirements.txt`
 
 ## Getting Started
@@ -34,14 +42,16 @@ This will start the server at `http://127.0.0.1:8000/`
 To use my API, send a POST request to the `/api/animation/` endpoint with your text in the request body. Here's an example using curl:
 ```
 curl -X POST [http://localhost:8000/api/animation/](http://localhost:8000/api/animation/) -H "Content-Type: application/json" -H "Authorization: Token YOUR_AUTH_TOKEN" -d '{"sen": "Hello, how are you?"}'
-Project Demo Video: https://youtu.be/YiHhD0QGrno
+
 ```
 The API will return a JSON response with the relevant animation data.
 
-## A Note on Authentication
+## Future Directions
+The following areas offer potential for enhancement:
 
-I've implemented token-based authentication for security. Make sure to include your authentication token in the request header as shown in the example above.
-
+- Model Refinement — Implement more complex NLP models for improved text analysis.
+- Dynamic Animation Generation — Use computer vision models for real-time generation of ISL animations.
+- Expansion to Other Sign Languages — Adapt the model to support other regional sign languages with minimal changes.
 ## Feedback and Contributions
 
 I'm always looking to improve this API. If you have any suggestions or run into any issues, please open an issue in this repository. Pull requests are also welcome!
