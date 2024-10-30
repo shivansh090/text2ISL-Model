@@ -3,11 +3,24 @@ from django.http import JsonResponse
 from django.utils.decorators import method_decorator
 from rest_framework.views import APIView
 import nltk
+import os
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from django.contrib.staticfiles import finders
 from django.views.decorators.csrf import csrf_exempt
+
+
+# Set NLTK data path
+nltk.data.path.append(os.path.join(os.getcwd(), 'nltk_data'))
+
+# Download required data at startup
+try:
+    nltk.download('punkt')
+    nltk.download('averaged_perceptron_tagger')
+except Exception as e:
+    print(f"Error downloading NLTK data: {e}")
+
 
 @method_decorator(csrf_exempt, name='dispatch')
 class ApiAnimationView(APIView):
